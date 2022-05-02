@@ -22,6 +22,15 @@ namespace final_project.Pages.Randomizer
         [BindProperty]
         public Armor Armor { get; set; }
 
+        [BindProperty]
+        public Primary Primary { get; set; }
+
+        [BindProperty]
+        public Secondary Secondary { get; set; }
+
+        [BindProperty]
+        public Heavy Heavy { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -32,6 +41,27 @@ namespace final_project.Pages.Randomizer
             Armor = await _context.Armor.FirstOrDefaultAsync(m => m.ArmorID == id);
 
             if (Armor == null)
+            {
+                return NotFound();
+            }
+
+            Primary = await _context.Primary.FirstOrDefaultAsync(m => m.PrimaryID == id);
+
+            if (Primary == null)
+            {
+                return NotFound();
+            }
+
+            Secondary = await _context.Secondary.FirstOrDefaultAsync(m => m.SecondaryID == id);
+
+            if (Secondary == null)
+            {
+                return NotFound();
+            }
+
+            Heavy = await _context.Heavy.FirstOrDefaultAsync(m => m.HeavyID == id);
+
+            if (Heavy == null)
             {
                 return NotFound();
             }
@@ -50,6 +80,30 @@ namespace final_project.Pages.Randomizer
             if (Armor != null)
             {
                 _context.Armor.Remove(Armor);
+                await _context.SaveChangesAsync();
+            }
+
+            Primary = await _context.Primary.FindAsync(id);
+
+            if (Primary != null)
+            {
+                _context.Primary.Remove(Primary);
+                await _context.SaveChangesAsync();
+            }
+
+            Secondary = await _context.Secondary.FindAsync(id);
+
+            if (Secondary != null)
+            {
+                _context.Secondary.Remove(Secondary);
+                await _context.SaveChangesAsync();
+            }
+
+            Heavy = await _context.Heavy.FindAsync(id);
+
+            if (Heavy != null)
+            {
+                _context.Heavy.Remove(Heavy);
                 await _context.SaveChangesAsync();
             }
 
