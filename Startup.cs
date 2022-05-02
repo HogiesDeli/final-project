@@ -29,6 +29,9 @@ namespace final_project
 
             services.AddDbContext<D2RandomContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("D2RandomContext")));
+
+            services.AddDbContext<RazorPagesD2RandomizerContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("RazorPagesD2RandomizerContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

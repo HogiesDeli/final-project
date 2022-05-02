@@ -5,22 +5,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using final_project.Models;
+using final_project;
 
 namespace final_project.Pages.Randomizer
 {
     public class IndexModel : PageModel
     {
-        private readonly final_project.Models.D2RandomContext _context;
+        private readonly RazorPagesD2RandomizerContext _context;
 
-        public IndexModel(final_project.Models.D2RandomContext context)
+        public IndexModel(RazorPagesD2RandomizerContext context)
         {
             _context = context;
         }
 
-        public IList<Primary> Primary { get; set; }
-        public IList<Secondary> Secondary { get; set; }
-        public IList<Heavy> Heavy { get; set; }
-        public IList<Armor> Armor { get; set; }
+        public IList<Armor> Armor { get;set; }
+
+        public async Task OnGetAsync()
+        {
+            Armor = await _context.Armor.ToListAsync();
+        }
     }
 }
