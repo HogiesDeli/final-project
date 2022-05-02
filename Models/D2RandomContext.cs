@@ -8,7 +8,7 @@ namespace final_project.Models
         : base(options) { }
 
         public DbSet<Primary> Primary { get; set; }
-        public DbSet<Secondary> Secondary{ get; set; }
+        public DbSet<Secondary> Secondary { get; set; }
         public DbSet<Heavy> Heavy { get; set; }
         public DbSet<Armor> Armor { get; set; }
 

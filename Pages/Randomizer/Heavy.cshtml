@@ -1,5 +1,5 @@
 @page
-@model final_project.Pages.Randomizer.IndexModel
+@model final_project.Pages.Randomizer.HeavyModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,21 +14,21 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Armor")
+                @Html.DisplayName("Heavy Weapons")
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Primary)
+        @foreach (var item in Model.Heavy)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Pname)
+                    @Html.DisplayFor(modelItem => item.Hname)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.PrimaryID">Edit</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.PrimaryID">Delete</a>
+                    <a asp-page="./Edit" asp-route-id="@item.HeavyID">Edit</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.HeavyID">Delete</a>
                 </td>
             </tr>
         }

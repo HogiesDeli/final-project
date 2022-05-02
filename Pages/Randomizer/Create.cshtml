@@ -7,16 +7,64 @@
 
 <h1>Create</h1>
 
-<h4>Armor</h4>
+<h4>Add a new item to the randomizer</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Armor.Aname" class="control-label"></label>
+                <label asp-for="Armor.Aname" class="control-label">Armor</label>
                 <input asp-for="Armor.Aname" class="form-control" />
                 <span asp-validation-for="Armor.Aname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Primary.Pname" class="control-label">Primary</label>
+                <input asp-for="Primary.Pname" class="form-control" />
+                <span asp-validation-for="Primary.Pname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Secondary.Sname" class="control-label">Secondary</label>
+                <input asp-for="Secondary.Sname" class="form-control" />
+                <span asp-validation-for="Secondary.Sname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Heavy.Hname" class="control-label">Heavy</label>
+                <input asp-for="Heavy.Hname" class="form-control" />
+                <span asp-validation-for="Heavy.Hname" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -30,5 +78,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

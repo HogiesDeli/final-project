@@ -10,11 +10,11 @@ using final_project.Models;
 
 namespace final_project.Pages.Randomizer
 {
-    public class IndexModel : PageModel
+    public class PrimaryModel : PageModel
     {
         private readonly final_project.Models.D2RandomContext _context;
 
-        public IndexModel(final_project.Models.D2RandomContext context)
+        public PrimaryModel(final_project.Models.D2RandomContext context)
         {
             _context = context;
         }

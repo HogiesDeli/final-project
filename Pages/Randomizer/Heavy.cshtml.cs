@@ -10,20 +10,20 @@ using final_project.Models;
 
 namespace final_project.Pages.Randomizer
 {
-    public class IndexModel : PageModel
+    public class HeavyModel : PageModel
     {
         private readonly final_project.Models.D2RandomContext _context;
 
-        public IndexModel(final_project.Models.D2RandomContext context)
+        public HeavyModel(final_project.Models.D2RandomContext context)
         {
             _context = context;
         }
 
-        public IList<Primary> Primary { get; set; }
+        public IList<Heavy> Heavy { get; set; }
 
         public async Task OnGetAsync()
         {
-            Primary = await _context.Primary.ToListAsync();
+            Heavy = await _context.Heavy.ToListAsync();
         }
     }
 }
