@@ -5,32 +5,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center">Loadout Randomizer</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayName("Armor")
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Primary)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pname)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.PrimaryID">Edit</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.PrimaryID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="text-center">
+    <p>
+        <a asp-page="/Randomizer/Armor">Armor List</a><span> | </span>
+        <a asp-page="/Randomizer/Primary">Primary List</a><span> | </span>
+        <a asp-page="/Randomizer/Secondary">Secondary Weapon List</a><span> | </span>
+        <a asp-page="/Randomizer/Heavy">Heavy Weapon List</a>
+    </p>
+</div>
+
+<div class="form-group text-center">
+    <div class="center">
+        <input type="submit" value="RANDOMIZE LOADOUT" class="btn btn-primary btn-lg btn-block" />
+    </div>
+</div>

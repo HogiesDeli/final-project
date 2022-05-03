@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using final_project;
 using final_project.Models;
@@ -21,9 +22,36 @@ namespace final_project.Pages.Randomizer
 
         public IList<Heavy> Heavy { get; set; }
 
+        //Paging
+        [BindProperty(SupportsGet = true)]
+        public int PageNum { get; set; } = 1;
+        public int PageSize { get; set; } = 5;
+
+        //Sorting
+        [BindProperty(SupportsGet = true)]
+        public string CurrentSort { get; set; }
+        public SelectList SortList { get; set; }
+
         public async Task OnGetAsync()
         {
-            Heavy = await _context.Heavy.ToListAsync();
+            var heavy = _context.Heavy.Select(h => h);
+            List<SelectListItem> sortItems = new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Alphabetical Ascending", Value = "first_asc"},
+                new SelectListItem {Text="Alphabetical Decending", Value = "first_desc"}
+            };
+            SortList = new SelectList(sortItems, "Value", "Text", CurrentSort);
+
+            switch (CurrentSort)
+            {
+                case "first_asc":
+                    heavy = heavy.OrderBy(h => h.Hname);
+                    break;
+                case "first_desc":
+                    heavy = heavy.OrderByDescending(h => h.Hname);
+                    break;
+            }
+            Heavy = await heavy.ToListAsync();
         }
     }
 }

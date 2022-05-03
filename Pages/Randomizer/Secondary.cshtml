@@ -9,10 +9,31 @@
 
 <p>
     <a asp-page="Create">Create New</a>
+    <span> | </span>
+    <a asp-page="Index">Back to Randomizer</a>
 </p>
+
+<!-- Sorting Technique with SelectList -->
+<form>
+    <select asp-for="CurrentSort" asp-items="Model.SortList">
+        <option value="">sort by...</option>
+    </select>
+    <button type="submit">Sort</button>
+</form>
+
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @{
+                    var firstSort = "first_asc";
+                    if (Model.CurrentSort == "first_asc")
+                    {
+                        firstSort = "first_desc";
+                    }
+                }
+                <a asp-page="./Secondary" asp-route-CurrentSort="@firstSort">@Html.DisplayName("Secondary")</a>
+            </th>
             <th>
                 @Html.DisplayName("Secondary Weapons")
             </th>
@@ -34,3 +55,20 @@
         }
     </tbody>
 </table>
+
+<hr />
+@{
+    var prevDisabled = "";
+    if (Model.PageNum <= 1)
+    {
+        prevDisabled = "disabled";
+    }
+}
+
+<nav aria-label="Page Navigation">
+    <ul class="pagination">
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Secondary" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+        <li class="page-item"><a class="page-link" asp-page="./Secondary" asp-route-PageNum="@(Model.PageNum + 1)">Next</a>
+        </li>
+    </ul>
+</nav>

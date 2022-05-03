@@ -1,8 +1,7 @@
 # final-project
 
-started randomizer razor page
+All that is left is to create the randomize page with the button that pulls one entry from each model in the db
 
-*** still need to do ***
-*** Paging and Search for item pages
-*** Create Select Box for randomizing on Index page
-***Figure out other stuff to do
+***Figure out why Create. files aren't adding entries into the Database***
+
+
