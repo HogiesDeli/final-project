@@ -59,7 +59,7 @@
 <hr />
 @{
     var prevDisabled = "";
-    if (Model.PageNum <= 1)
+    if (Model.PageNumH <= 1)
     {
         prevDisabled = "disabled";
     }
@@ -67,8 +67,8 @@
 
 <nav aria-label="Page Navigation">
     <ul class="pagination">
-        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Heavy" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
-        <li class="page-item"><a class="page-link" asp-page="./Heavy" asp-route-PageNum="@(Model.PageNum + 1)">Next</a>
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Heavy" asp-route-PageNum="@(Model.PageNumH - 1)">Previous</a></li>
+        <li class="page-item"><a class="page-link" asp-page="./Heavy" asp-route-PageNum="@(Model.PageNumH + 1)">Next</a>
         </li>
     </ul>
 </nav>

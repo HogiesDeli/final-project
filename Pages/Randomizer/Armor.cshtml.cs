@@ -25,7 +25,7 @@ namespace final_project.Pages.Randomizer
         //Paging
         [BindProperty(SupportsGet = true)]
         public int PageNum { get; set; } = 1;
-        public int PageSize { get; set; } = 11;
+        public int PageSize { get; set; } = 5;
 
         //Search Bar
         [BindProperty(SupportsGet = true)]

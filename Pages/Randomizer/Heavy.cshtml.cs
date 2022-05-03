@@ -24,8 +24,8 @@ namespace final_project.Pages.Randomizer
 
         //Paging
         [BindProperty(SupportsGet = true)]
-        public int PageNum { get; set; } = 1;
-        public int PageSize { get; set; } = 5;
+        public int PageNumH { get; set; } = 1;
+        public int PageSizeH { get; set; } = 5;
 
         //Sorting
         [BindProperty(SupportsGet = true)]

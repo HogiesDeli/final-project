@@ -27,14 +27,14 @@ namespace final_project.Pages.Randomizer
         [BindProperty]
         public Armor Armor { get; set; }
 
-        [BindProperty]
-        public Primary Primary { get; set; }
+        // [BindProperty]
+        // public Primary Primary { get; set; }
 
-        [BindProperty]
-        public Secondary Secondary { get; set; }
+        // [BindProperty]
+        // public Secondary Secondary { get; set; }
 
-        [BindProperty]
-        public Heavy Heavy { get; set; }
+        // [BindProperty]
+        // public Heavy Heavy { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -46,12 +46,13 @@ namespace final_project.Pages.Randomizer
             }
 
             _context.Armor.Add(Armor);
-            await _context.SaveChangesAsync();
-            _context.Primary.Add(Primary);
-            await _context.SaveChangesAsync();
-            _context.Secondary.Add(Secondary);
-            await _context.SaveChangesAsync();
-            _context.Heavy.Add(Heavy);
+            
+            // _context.Primary.Add(Primary);
+
+            // _context.Secondary.Add(Secondary);
+
+            // _context.Heavy.Add(Heavy);
+
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
