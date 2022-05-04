@@ -20,14 +20,32 @@ namespace final_project.Pages.Randomizer
         }
 
         public IList<Armor> Armor { get; set; }
+        public IList<Primary> Primary { get; set; }
+        public IList<Secondary> Secondary { get; set; }
+        public IList<Heavy> Heavy { get; set; }
 
         public async Task OnGetAsync()
         {
             var armor = _context.Armor.Select(a => a);
-            Random rand = new Random();
-            int toSkip = rand.Next(1, Armor.Count());  
+            Random Arand = new Random();
+            int armSkip = Arand.Next(1, armor.Count());
+            Armor = await armor.Skip(armSkip).Take(1).ToListAsync();
 
-            Armor = await armor.Skip(toSkip).Take(1).ToListAsync();
+            var primary = _context.Primary.Select(a => a);
+            Random Prand = new Random();
+            int priSkip = Prand.Next(1, primary.Count());
+            Primary = await primary.Skip(priSkip).Take(1).ToListAsync();
+
+            var secondary = _context.Secondary.Select(a => a);
+            Random Srand = new Random();
+            int secSkip = Srand.Next(1, secondary.Count());
+            Secondary = await secondary.Skip(secSkip).Take(1).ToListAsync();
+
+            var heavy = _context.Heavy.Select(a => a);
+            Random Hrand = new Random();
+            int hevSkip = Hrand.Next(1, heavy.Count());
+            Heavy = await heavy.Skip(hevSkip).Take(1).ToListAsync();
         }
+
     }
 }
