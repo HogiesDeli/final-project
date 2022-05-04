@@ -19,11 +19,15 @@ namespace final_project.Pages.Randomizer
             _context = context;
         }
 
-        public IList<Primary> Primary { get; set; }
+        public IList<Armor> Armor { get; set; }
 
         public async Task OnGetAsync()
         {
-            Primary = await _context.Primary.ToListAsync();
+            var armor = _context.Armor.Select(a => a);
+            Random rand = new Random();
+            int toSkip = rand.Next(1, Armor.Count());  
+
+            Armor = await armor.Skip(toSkip).Take(1).ToListAsync();
         }
     }
 }

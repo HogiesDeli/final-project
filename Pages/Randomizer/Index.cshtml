@@ -21,3 +21,24 @@
         <input type="submit" value="RANDOMIZE LOADOUT" class="btn btn-primary btn-lg btn-block" />
     </div>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Armor")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Armor)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aname)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
