@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>
@@ -37,6 +37,69 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Aname)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Primary Weapon")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Primary)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pname)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Secondary Weapon")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Secondary)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sname)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Heavy Weapon")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Heavy)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hname)
                 </td>
             </tr>
         }
